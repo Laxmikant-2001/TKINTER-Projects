@@ -1,0 +1,41 @@
+from tkinter import *
+from tkinter import ttk
+
+def OnSubmit():
+    select_button = selected_button_var.get()
+    print("Selected button is {}:".format(select_button))
+
+def main():
+    
+    global selected_button_var
+    
+    root_window = Tk()
+    root_window.title("LST: RadioButton-Demo")
+    
+    selected_button_var = StringVar()
+    
+    radioButton_1 = ttk.Radiobutton(
+        root_window,
+        variable=selected_button_var,
+        text="RadioButton-1",
+        value="RadioButton-1"
+    )
+    
+    radioButton_1.grid(row=0, column=0, sticky=(W, E))
+    
+    radioButton_2 = ttk.Radiobutton(
+        root_window,
+        variable= selected_button_var,
+        text="RadioButton-2",
+        value="RadioButton-2"
+    )
+    
+    radioButton_2.grid(row=1, column=1, sticky = (E, W))
+    
+    submit_button = ttk.Button(root_window)
+    submit_button.configure(text="Submit", command=OnSubmit)
+    submit_button.grid(row=2, column=2)
+    
+    root_window.mainloop()
+    
+main()
